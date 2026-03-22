@@ -1,0 +1,194 @@
+{
+  "common": {
+    "appName": "Vin",
+    "tagline": "Din personlige vinopplevelse",
+    "login": "Logg inn",
+    "register": "Registrer deg",
+    "logout": "Logg ut",
+    "search": "Søk...",
+    "save": "Lagre",
+    "cancel": "Avbryt",
+    "delete": "Slett",
+    "edit": "Rediger",
+    "loading": "Laster...",
+    "seeAll": "Se alle",
+    "back": "Tilbake"
+  },
+  "nav": {
+    "dashboard": "Oversikt",
+    "wines": "Viner",
+    "cellar": "Kjeller",
+    "scan": "Skann",
+    "pairing": "Matkombo",
+    "restaurants": "Restauranter",
+    "profile": "Profil",
+    "feed": "Oppdateringer"
+  },
+  "landing": {
+    "hero": {
+      "title": "Oppdag, samle og del din vinopplevelse",
+      "subtitle": "Skann etiketter, bygg din vinkjeller, finn perfekte matkombinasjoner — alt på ett sted.",
+      "cta": "Kom i gang gratis",
+      "ctaSecondary": "Utforsk viner"
+    },
+    "features": {
+      "scan": {
+        "title": "Skann etiketten",
+        "description": "Ta bilde av en vinetikett og få umiddelbar informasjon om vinen, priser og anmeldelser."
+      },
+      "cellar": {
+        "title": "Din vinkjeller",
+        "description": "Hold oversikt over samlingen din med mengde, plassering, innkjøpspris og drikkevindu."
+      },
+      "pairing": {
+        "title": "Mat & vin",
+        "description": "Finn den perfekte vinen til middagen — eller finn mat som matcher vinen du allerede har."
+      },
+      "reviews": {
+        "title": "Smaksnotater",
+        "description": "Gi karakterer, skriv detaljerte smaksnotater og del dine vinopplevelser."
+      },
+      "vinmonopolet": {
+        "title": "Vinmonopolet-priser",
+        "description": "Se oppdaterte priser og tilgjengelighet direkte fra Vinmonopolet."
+      },
+      "social": {
+        "title": "Sosial vinopplevelse",
+        "description": "Se hva venner drikker, følg eksperter og oppdag nye viner."
+      }
+    },
+    "stats": {
+      "wines": "Viner i databasen",
+      "users": "Vinelskere",
+      "reviews": "Anmeldelser",
+      "pairings": "Matkombinasjoner"
+    }
+  },
+  "dashboard": {
+    "welcome": "Velkommen tilbake",
+    "subtitle": "Din vinreise i tall",
+    "stats": {
+      "cellar": "I kjelleren",
+      "bottles": "flasker",
+      "reviews": "Anmeldelser",
+      "avgRating": "Snittkarakter",
+      "lastTasted": "Sist smakt"
+    },
+    "distribution": {
+      "title": "Min kjeller — Fordeling",
+      "red": "Rødvin",
+      "white": "Hvitvin",
+      "sparkling": "Musserende",
+      "rose": "Rosé",
+      "orange": "Oransje",
+      "dessert": "Dessertvin",
+      "fortified": "Sterkvin"
+    },
+    "drinkSoon": {
+      "title": "Drikk snart",
+      "within": "Drikk innen {months} mnd",
+      "optimal": "Optimal nå!",
+      "pastPeak": "Forbi toppen"
+    },
+    "vinmonopolet": {
+      "title": "Nytt fra Vinmonopolet",
+      "newArrivals": "Nye produkter"
+    },
+    "foodSuggestion": {
+      "title": "Matforslag i dag",
+      "recommend": "Til {dish} anbefaler vi..."
+    },
+    "cellarValue": {
+      "title": "Kjellerverdi",
+      "total": "Total verdi",
+      "change": "siste år"
+    },
+    "topWines": {
+      "title": "Mine toppviner"
+    },
+    "quickActions": {
+      "scan": "Skann vin",
+      "addToCellar": "Legg til i kjeller",
+      "writeReview": "Skriv anmeldelse"
+    }
+  },
+  "wines": {
+    "title": "Viner",
+    "searchPlaceholder": "Søk etter vin, produsent eller region...",
+    "filters": {
+      "type": "Type",
+      "region": "Region",
+      "grape": "Drue",
+      "rating": "Karakter",
+      "price": "Pris"
+    },
+    "detail": {
+      "producer": "Produsent",
+      "vintage": "Årgang",
+      "region": "Region",
+      "grapes": "Druesorter",
+      "abv": "Alkoholprosent",
+      "reviews": "Anmeldelser",
+      "pairings": "Matkombinasjoner",
+      "addToCellar": "Legg til i kjeller"
+    }
+  },
+  "cellar": {
+    "title": "Min vinkjeller",
+    "empty": "Kjelleren din er tom. Start med å legge til viner!",
+    "totalBottles": "Totalt flasker",
+    "totalValue": "Estimert verdi",
+    "addWine": "Legg til vin",
+    "form": {
+      "quantity": "Antall",
+      "purchasePrice": "Innkjøpspris",
+      "purchaseDate": "Kjøpsdato",
+      "location": "Plassering",
+      "drinkFrom": "Drikk fra",
+      "drinkBefore": "Drikk før",
+      "notes": "Notater"
+    }
+  },
+  "scan": {
+    "title": "Skann vinetikett",
+    "instructions": "Ta bilde av etiketten for å identifisere vinen",
+    "capture": "Ta bilde",
+    "upload": "Last opp bilde",
+    "analyzing": "Analyserer etikett...",
+    "result": "Vi fant denne vinen"
+  },
+  "pairing": {
+    "title": "Mat & vin",
+    "searchDish": "Hva skal du spise?",
+    "searchWine": "Hvilken vin har du?",
+    "results": "Anbefalinger",
+    "strength": "Kombinasjonsstyrke"
+  },
+  "profile": {
+    "title": "Min profil",
+    "settings": "Innstillinger",
+    "tasteProfile": "Smaksprofil",
+    "language": "Språk",
+    "theme": "Tema"
+  },
+  "auth": {
+    "login": {
+      "title": "Logg inn",
+      "email": "E-post",
+      "password": "Passord",
+      "submit": "Logg inn",
+      "noAccount": "Har du ikke konto?",
+      "register": "Registrer deg her"
+    },
+    "register": {
+      "title": "Opprett konto",
+      "name": "Navn",
+      "email": "E-post",
+      "password": "Passord",
+      "confirmPassword": "Bekreft passord",
+      "submit": "Opprett konto",
+      "hasAccount": "Har du allerede konto?",
+      "login": "Logg inn her"
+    }
+  }
+}
