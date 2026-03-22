@@ -1,0 +1,194 @@
+{
+  "common": {
+    "appName": "Vin",
+    "tagline": "Your personal wine experience",
+    "login": "Log in",
+    "register": "Sign up",
+    "logout": "Log out",
+    "search": "Search...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "seeAll": "See all",
+    "back": "Back"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "wines": "Wines",
+    "cellar": "Cellar",
+    "scan": "Scan",
+    "pairing": "Pairing",
+    "restaurants": "Restaurants",
+    "profile": "Profile",
+    "feed": "Feed"
+  },
+  "landing": {
+    "hero": {
+      "title": "Discover, collect and share your wine experience",
+      "subtitle": "Scan labels, build your wine cellar, find perfect food pairings — all in one place.",
+      "cta": "Get started for free",
+      "ctaSecondary": "Explore wines"
+    },
+    "features": {
+      "scan": {
+        "title": "Scan the label",
+        "description": "Take a photo of a wine label and get instant information about the wine, prices and reviews."
+      },
+      "cellar": {
+        "title": "Your wine cellar",
+        "description": "Keep track of your collection with quantity, location, purchase price and drink windows."
+      },
+      "pairing": {
+        "title": "Food & wine",
+        "description": "Find the perfect wine for dinner — or find food that matches the wine you already have."
+      },
+      "reviews": {
+        "title": "Tasting notes",
+        "description": "Rate wines, write detailed tasting notes and share your wine experiences."
+      },
+      "vinmonopolet": {
+        "title": "Vinmonopolet prices",
+        "description": "See updated prices and availability directly from Vinmonopolet."
+      },
+      "social": {
+        "title": "Social wine experience",
+        "description": "See what friends are drinking, follow experts and discover new wines."
+      }
+    },
+    "stats": {
+      "wines": "Wines in database",
+      "users": "Wine lovers",
+      "reviews": "Reviews",
+      "pairings": "Food pairings"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "subtitle": "Your wine journey in numbers",
+    "stats": {
+      "cellar": "In the cellar",
+      "bottles": "bottles",
+      "reviews": "Reviews",
+      "avgRating": "Average rating",
+      "lastTasted": "Last tasted"
+    },
+    "distribution": {
+      "title": "My cellar — Distribution",
+      "red": "Red wine",
+      "white": "White wine",
+      "sparkling": "Sparkling",
+      "rose": "Rosé",
+      "orange": "Orange",
+      "dessert": "Dessert wine",
+      "fortified": "Fortified"
+    },
+    "drinkSoon": {
+      "title": "Drink soon",
+      "within": "Drink within {months} months",
+      "optimal": "Optimal now!",
+      "pastPeak": "Past peak"
+    },
+    "vinmonopolet": {
+      "title": "New from Vinmonopolet",
+      "newArrivals": "New arrivals"
+    },
+    "foodSuggestion": {
+      "title": "Food suggestion today",
+      "recommend": "For {dish} we recommend..."
+    },
+    "cellarValue": {
+      "title": "Cellar value",
+      "total": "Total value",
+      "change": "last year"
+    },
+    "topWines": {
+      "title": "My top wines"
+    },
+    "quickActions": {
+      "scan": "Scan wine",
+      "addToCellar": "Add to cellar",
+      "writeReview": "Write review"
+    }
+  },
+  "wines": {
+    "title": "Wines",
+    "searchPlaceholder": "Search for wine, producer or region...",
+    "filters": {
+      "type": "Type",
+      "region": "Region",
+      "grape": "Grape",
+      "rating": "Rating",
+      "price": "Price"
+    },
+    "detail": {
+      "producer": "Producer",
+      "vintage": "Vintage",
+      "region": "Region",
+      "grapes": "Grape varieties",
+      "abv": "ABV",
+      "reviews": "Reviews",
+      "pairings": "Food pairings",
+      "addToCellar": "Add to cellar"
+    }
+  },
+  "cellar": {
+    "title": "My wine cellar",
+    "empty": "Your cellar is empty. Start by adding wines!",
+    "totalBottles": "Total bottles",
+    "totalValue": "Estimated value",
+    "addWine": "Add wine",
+    "form": {
+      "quantity": "Quantity",
+      "purchasePrice": "Purchase price",
+      "purchaseDate": "Purchase date",
+      "location": "Location",
+      "drinkFrom": "Drink from",
+      "drinkBefore": "Drink before",
+      "notes": "Notes"
+    }
+  },
+  "scan": {
+    "title": "Scan wine label",
+    "instructions": "Take a photo of the label to identify the wine",
+    "capture": "Take photo",
+    "upload": "Upload photo",
+    "analyzing": "Analyzing label...",
+    "result": "We found this wine"
+  },
+  "pairing": {
+    "title": "Food & wine",
+    "searchDish": "What are you eating?",
+    "searchWine": "Which wine do you have?",
+    "results": "Recommendations",
+    "strength": "Pairing strength"
+  },
+  "profile": {
+    "title": "My profile",
+    "settings": "Settings",
+    "tasteProfile": "Taste profile",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Log in",
+      "noAccount": "Don't have an account?",
+      "register": "Sign up here"
+    },
+    "register": {
+      "title": "Create account",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "submit": "Create account",
+      "hasAccount": "Already have an account?",
+      "login": "Log in here"
+    }
+  }
+}
