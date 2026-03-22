@@ -1,4 +1,7 @@
+"use client";
+
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import { StatsCards } from "@/components/dashboard/stats-cards";
 import { CellarDistribution } from "@/components/dashboard/cellar-distribution";
 import { DrinkSoonList } from "@/components/dashboard/drink-soon-list";
@@ -8,127 +11,99 @@ import { CellarValue } from "@/components/dashboard/cellar-value";
 import { TopWines } from "@/components/dashboard/top-wines";
 import { QuickActions } from "@/components/dashboard/quick-actions";
 
-// Demo data - will be replaced with real data from DB + APIs
-const demoStats = {
-  totalBottles: 47,
-  totalReviews: 23,
-  avgRating: 4.2,
-  lastTasted: "Barolo Riserva 2019",
-};
+interface DashboardData {
+  totalBottles: number;
+  totalReviews: number;
+  avgRating: number;
+  lastTasted: string | null;
+  cellarValue: number;
+  distribution: { type: string; count: number; percentage: number }[];
+  drinkSoon: { id: string; wineName: string; vintage: number | null; drinkBefore: string; status: "optimal" | "soon" | "urgent" }[];
+  topWines: { id: string; name: string; vintage: number | null; rating: number }[];
+}
 
-const demoDistribution = [
-  { type: "RED", count: 32, percentage: 68 },
-  { type: "WHITE", count: 10, percentage: 22 },
-  { type: "SPARKLING", count: 3, percentage: 8 },
-  { type: "ROSE", count: 2, percentage: 2 },
-];
-
-const demoDrinkSoon = [
-  {
-    id: "1",
-    wineName: "Chablis Premier Cru",
-    vintage: 2020,
-    drinkBefore: "2026-09-01",
-    status: "soon" as const,
-  },
-  {
-    id: "2",
-    wineName: "Rioja Reserva",
-    vintage: 2017,
-    drinkBefore: "2026-04-01",
-    status: "optimal" as const,
-  },
-  {
-    id: "3",
-    wineName: "Sancerre",
-    vintage: 2019,
-    drinkBefore: "2026-02-01",
-    status: "urgent" as const,
-  },
-];
-
-const demoVinmonopolet = [
-  {
-    id: "v1",
-    name: "Cloudy Bay Sauvignon Blanc",
-    producer: "Cloudy Bay",
-    price: 249,
-    type: "Hvitvin",
-    country: "New Zealand",
-  },
-  {
-    id: "v2",
-    name: "Tignanello 2020",
-    producer: "Antinori",
-    price: 899,
-    type: "Rodvin",
-    country: "Italia",
-  },
-  {
-    id: "v3",
-    name: "Bollinger Special Cuvée",
-    producer: "Bollinger",
-    price: 599,
-    type: "Musserende",
-    country: "Frankrike",
-  },
-  {
-    id: "v4",
-    name: "Whispering Angel Rosé",
-    producer: "Château d'Esclans",
-    price: 199,
-    type: "Rose",
-    country: "Frankrike",
-  },
-];
-
-const demoFoodSuggestion = {
-  dish: "laks",
-  wines: [
-    { id: "w1", name: "Chablis", type: "WHITE" },
-    { id: "w2", name: "Pinot Grigio", type: "WHITE" },
-    { id: "w3", name: "Sancerre", type: "WHITE" },
-  ],
-};
-
-const demoTopWines = [
-  { id: "t1", name: "Barolo Riserva", vintage: 2016, rating: 4.8 },
-  { id: "t2", name: "Châteauneuf-du-Pape", vintage: 2018, rating: 4.7 },
-  { id: "t3", name: "Amarone della Valpolicella", vintage: 2017, rating: 4.5 },
-];
+interface VinProduct {
+  id: string;
+  name: string;
+  producer: string;
+  price: number;
+  type: string;
+  country: string;
+}
 
 export default function DashboardPage() {
   const t = useTranslations("dashboard");
+  const [data, setData] = useState<DashboardData | null>(null);
+  const [vinProducts, setVinProducts] = useState<VinProduct[]>([]);
+
+  useEffect(() => {
+    fetch("/api/dashboard")
+      .then((res) => res.json())
+      .then(setData)
+      .catch(console.error);
+
+    // Get some wines as "new from Vinmonopolet" (simulated)
+    fetch("/api/wines?limit=4")
+      .then((res) => res.json())
+      .then((res) => {
+        setVinProducts(
+          res.wines.map((w: { id: string; name: string; producer: string; price: number; type: string; country: string }) => ({
+            id: w.id,
+            name: w.name,
+            producer: w.producer,
+            price: w.price ?? 0,
+            type: w.type,
+            country: w.country,
+          }))
+        );
+      })
+      .catch(console.error);
+  }, []);
+
+  if (!data) {
+    return (
+      <div className="flex items-center justify-center py-20">
+        <p className="text-muted-foreground">{t("welcome")}...</p>
+      </div>
+    );
+  }
+
+  // Pick a food suggestion from pairings
+  const suggestions = [
+    { dish: "laks", wines: [{ id: "1", name: "Chablis", type: "WHITE" }, { id: "2", name: "Sancerre", type: "WHITE" }] },
+    { dish: "biff", wines: [{ id: "3", name: "Barolo", type: "RED" }, { id: "4", name: "Châteauneuf-du-Pape", type: "RED" }] },
+    { dish: "pasta", wines: [{ id: "5", name: "Tignanello", type: "RED" }, { id: "6", name: "Valpolicella", type: "RED" }] },
+  ];
+  const todaySuggestion = suggestions[new Date().getDay() % suggestions.length];
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div>
         <h1 className="text-2xl font-bold">{t("welcome")}</h1>
         <p className="text-muted-foreground">{t("subtitle")}</p>
       </div>
 
-      {/* Stats Cards */}
-      <StatsCards {...demoStats} />
+      <StatsCards
+        totalBottles={data.totalBottles}
+        totalReviews={data.totalReviews}
+        avgRating={data.avgRating}
+        lastTasted={data.lastTasted}
+      />
 
-      {/* Two-column layout for medium+ screens */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Left column */}
         <div className="space-y-6">
-          <CellarDistribution data={demoDistribution} />
-          <DrinkSoonList items={demoDrinkSoon} />
-          <CellarValue totalValue={34500} changePercent={12} />
+          <CellarDistribution data={data.distribution} />
+          <DrinkSoonList items={data.drinkSoon} />
+          <CellarValue totalValue={data.cellarValue} changePercent={12} />
         </div>
 
-        {/* Right column */}
         <div className="space-y-6">
-          <VinmonopoletNew products={demoVinmonopolet} />
-          <FoodPairingSuggestion suggestion={demoFoodSuggestion} />
-          <TopWines wines={demoTopWines} />
+          <VinmonopoletNew products={vinProducts} />
+          <FoodPairingSuggestion suggestion={todaySuggestion} />
+          <TopWines wines={data.topWines} />
         </div>
       </div>
 
-      {/* Quick Actions FAB */}
       <QuickActions />
     </div>
   );
