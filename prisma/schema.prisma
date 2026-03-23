@@ -125,3 +125,40 @@ model TasteProfile {
   user             User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId           String @unique
 }
+
+model Restaurant {
+  id            String                   @id @default(cuid())
+  name          String
+  address       String?
+  city          String
+  region        String
+  area          String?
+  venueType     String?
+  wineCount     Int?
+  rating        Float?
+  priceTier     String?
+  tags          String                   @default("[]")
+  awards        String                   @default("[]")
+  description   String?
+  documentUrl   String?
+  lastUpdated   DateTime?
+  confidence    String                   @default("medium")
+  rank          Int?
+  createdAt     DateTime                 @default(now())
+  updatedAt     DateTime                 @updatedAt
+  highlights    RestaurantWineHighlight[]
+}
+
+model RestaurantWineHighlight {
+  id             String     @id @default(cuid())
+  category       String
+  wineName       String
+  producer       String?
+  vintage        Int?
+  priceBottleNok Int?
+  priceGlassNok  Int?
+  pour           String?
+  sourceRef      String?
+  restaurant     Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  restaurantId   String
+}
